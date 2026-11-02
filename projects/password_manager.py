@@ -2,12 +2,12 @@ from cryptography.fernet import Fernet
 
 def write_key():
     key = Fernet.generate_key()
-    with open("key.key", "wb") as key_file:
+    with open("utility/key.key", "wb") as key_file:
         key_file.write(key)
 # write_key()
 
 def load_key():
-    with open("key.key", "rb") as key_file:
+    with open("utility/key.key", "rb") as key_file:
         key = key_file.read()
         return key
 
@@ -17,11 +17,11 @@ fer = Fernet(key)
 def add():
     name = input("Account Name: ")
     pwd = input("Password: ")
-    with open("passwords.txt", "a") as f:
+    with open("utility/passwords.txt", "a") as f:
         f.write(name + "|" + str(fer.encrypt(pwd.encode()).decode()) + "\n")
 
 def view():
-    with open("passwords.txt", "r") as f:
+    with open("utility/passwords.txt", "r") as f:
         for line in f.readlines():
             name, pwd = line.split("|")
             print(f"account name: {name}, password: {fer.decrypt(pwd.encode()).decode()}")

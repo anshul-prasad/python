@@ -1,4 +1,4 @@
-with open("story.txt", "r") as f:
+with open("utility/story.txt", "r") as f:
     story = f.read()
 
 words = set()

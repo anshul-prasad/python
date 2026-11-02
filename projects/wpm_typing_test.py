@@ -11,7 +11,7 @@ def start_screen(stdscr):
     stdscr.getkey()
 
 def load_text():
-    with open("projects/text.txt", "r") as f:
+    with open("utility/text.txt", "r") as f:
         lines = f.readlines()
         return random.choice(lines).strip()
 
